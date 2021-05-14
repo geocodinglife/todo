@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :projects
+  resources :categories
+  resources :tasks
   root 'welcome#index'
 
   namespace :api do
