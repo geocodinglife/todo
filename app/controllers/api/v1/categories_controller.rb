@@ -1,5 +1,5 @@
 class Api::V1::CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :update, :destroy]
+  before_action :set_category, only: %i[show update destroy]
 
   def index
     @categories = Category.all
@@ -34,11 +34,12 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   private
-    def set_category
-      @category = Category.find(params[:id])
-    end
 
-    def category_params
-      params.require(:category).permit(:name, :categoryable_id, :categoryable_type)
-    end
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  def category_params
+    params.require(:category).permit(:name, :categoryable_id, :categoryable_type)
+  end
 end

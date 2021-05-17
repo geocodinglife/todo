@@ -1,10 +1,10 @@
 class Api::V1::TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: [:show, :update, :destroy]
+  before_action :set_task, only: %i[show update destroy]
 
   def index
     @tasks = Task.all
-    
+
     render json: @tasks
   end
 
@@ -36,11 +36,12 @@ class Api::V1::TasksController < ApplicationController
   end
 
   private
-    def set_task
-      @task = Task.find(params[:id])
-    end
 
-    def task_params
-      params.require(:task).permit(:name, :description, :position, :priority, :state, :task_id, :project_id)
-    end
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:name, :description, :position, :priority, :state, :task_id, :project_id)
+  end
 end

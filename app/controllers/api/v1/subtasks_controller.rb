@@ -1,6 +1,6 @@
 class Api::V1::SubtasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :subtask_params, only: [:show, :update, :destroy]
+  before_action :subtask_params, only: %i[show update destroy]
 
   def index
     @subtasks = Subtask.all
@@ -34,12 +34,12 @@ class Api::V1::SubtasksController < ApplicationController
   end
 
   private
-    def set_subtask
-      @subtask = Task.find(params[:id])
-    end
 
-    def subtask_params
-      params.require(:task).permit(:name, :description, :position, :priority, :state)
-    end
+  def set_subtask
+    @subtask = Task.find(params[:id])
+  end
+
+  def subtask_params
+    params.require(:task).permit(:name, :description, :position, :priority, :state)
+  end
 end
-
