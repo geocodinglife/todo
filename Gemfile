@@ -5,19 +5,20 @@ ruby '3.0.1'
 
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'devise-jwt'
+gem 'devise-jwt', '~> 0.8.1'
 gem 'dotenv-rails'
+gem 'fuubar'
+gem 'jsonapi-rails'
 gem 'olive_branch'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
-gem 'fuubar'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.17'
+  gem 'jsonapi-rspec'
   gem 'rspec-rails', '~> 5.0.0'
 end
 

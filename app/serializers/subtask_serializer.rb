@@ -1,0 +1,2 @@
+class SubtaskSerializer < TaskSerializer
+end
