@@ -1,3 +1,6 @@
 class Task < ApplicationRecord
-  has_many :projects
+  belongs_to :project
+  has_many :categories, :as => :categoryable
+
+  PRIORITY_LIST = %[high medium low].freeze
 end
